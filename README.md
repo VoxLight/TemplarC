@@ -39,11 +39,11 @@ Here's a quick guide to use TemplarC:
 1. Fork the repository to your own GitHub account.
 2. Clone the repository to your local machine or open a codespace.
 3. Navigate to your codespace or the directory where you cloned the repository.
-4. Write your own dependencies inside of the `libs` folder.
-5. Write test cases in the `tests` directory.
+4. Write your own dependencies inside of the `libs` folder. (these are where your .c & .h file pairs go).
+5. Write test cases in the `tests` directory. These are just like regular programs, but you should use assert statements!
 6. Handle your main execution in `main.c`.
-6. Now you have access to the TemplarC make commands:
-   - `make` to build the project
+6. Now you have access to the TemplarC `make` commands:
+   - `make` to build your project
    - `make clean` to delete all files generated from `make`
    - `make test` for automated testing
    - `make test_clean` to clean all test files
