@@ -26,7 +26,7 @@ $(OUTPUT): $(OBJS)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS) $(OUTPUT)
+	rm -f build-*.out
 
 .PHONY: test
 test: $(TEST_BINS)
