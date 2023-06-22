@@ -23,7 +23,7 @@ LIBS = $(shell find $(LIB_DIR) -name '*.c')
 TESTS = $(shell find $(TEST_DIR) -name 'test_*.c')
 
 OBJS = $(SRCS:.c=.o) $(LIBS:.c=.o)
-TEST_BINS = $(TESTS:.c=)
+TEST_BINS = $(TESTS:.c=.out)
 OUTPUT = build-$(shell date +"%Y-%m-%d_%H-%M-%S").out
 
 .PHONY: all
@@ -51,7 +51,7 @@ test: $(TEST_BINS)
 $(TEST_DIR)/%: $(TEST_DIR)/%.c
 	$(eval LIBS_TO_INCLUDE=$(shell ./parse_includes.sh $< $(LIB_DIR)))
 	@echo "Libraries to include: " $(LIBS_TO_INCLUDE)
-	-$(CC) $(CFLAGS) $< $(LIBS_TO_INCLUDE) -o $@ 2>$(LOG_DIR)/$$(basename $@).log
+	-$(CC) $(CFLAGS) $< $(LIBS_TO_INCLUDE) -o $@.out 2>$(LOG_DIR)/$$(basename $@).log
 
 .PHONY: test_clean
 test_clean:
