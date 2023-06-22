@@ -48,10 +48,10 @@ test: $(TEST_BINS)
 		$$test || echo "ERROR $$test. Check logs for details."; \
 	done
 
-$(TEST_DIR)/%: $(TEST_DIR)/%.c
+$(TEST_DIR)/%.out: $(TEST_DIR)/%.c
 	$(eval LIBS_TO_INCLUDE=$(shell ./parse_includes.sh $< $(LIB_DIR)))
 	@echo "Libraries to include: " $(LIBS_TO_INCLUDE)
-	-$(CC) $(CFLAGS) $< $(LIBS_TO_INCLUDE) -o $@.out 2>$(LOG_DIR)/$$(basename $@).log
+	-$(CC) $(CFLAGS) $< $(LIBS_TO_INCLUDE) -o $@ 2>$(LOG_DIR)/$$(basename $@).log
 
 .PHONY: test_clean
 test_clean:
