@@ -1,3 +1,9 @@
+# Log Files
+/src/logs/*.log
+
+# VSCode
+**/.vscode
+
 # Prerequisites
 *.d
 
